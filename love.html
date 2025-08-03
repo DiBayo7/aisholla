@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AI ❤️ SHOOLA</title>
+		<script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #ffdc9e;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				font-family: 'Segoe UI', sans-serif;
+			}
+			.love-text {
+				font-size: 3em;
+				font-weight: bold;
+				color: #5a189a;
+				display: flex;
+				gap: 0.5em;
+				align-items: center;
+			}
+			.heart {
+				color: red;
+				transition: transform 0.3s ease-in-out;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="love-text">
+			<span class="el">AI</span>
+			<span class="heart el">❤️</span>
+			<span class="el">SHOOLA</span>
+		</div>
+
+		<script>
+			const elements = document.querySelectorAll('.el')
+
+			const timeline = new mojs.Timeline()
+
+			elements.forEach((el, i) => {
+				const tween = new mojs.Html({
+					el,
+					duration: 1000,
+					delay: i * 150,
+					opacity: { 0: 1 },
+					y: { 50: 0 },
+					easing: 'sin.out',
+				})
+
+				timeline.add(tween)
+			})
+
+			timeline.play()
+		</script>
+	</body>
+</html>
